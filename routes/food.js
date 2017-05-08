@@ -15,4 +15,12 @@ router.get('/new', function(req, res, next) {
   res.render('food/new');
 });
 
+router.get('/:id', function(req, res, next) {
+  knex.raw(`SELECT * FROM food WHERE id = ${req.params.id}`).then(function(payload) {
+    res.render('food/show', {
+      food: payload.rows[0]
+    });
+  });
+});
+
 module.exports = router;
