@@ -23,4 +23,10 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next) {
+  knex.raw(`INSERT into food (name) VALUES('${req.body.name}')`).then(function() {
+    res.redirect('/food');
+  });
+});
+
 module.exports = router;
