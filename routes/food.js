@@ -11,4 +11,8 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/new', function(req, res, next) {
+  res.render('food/new');
+});
+
 module.exports = router;
