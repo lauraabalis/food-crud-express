@@ -47,4 +47,10 @@ router.post('/:id', function(req, res, next) {
     });
 });
 
+router.get('/:id/delete', function(req, res, next) {
+  knex.raw(`DELETE FROM food WHERE id = ${req.params.id}`).then(function() {
+    res.redirect('/food');
+  });
+});
+
 module.exports = router;
