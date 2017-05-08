@@ -37,4 +37,14 @@ router.get('/:id/edit', function(req, res, next) {
   });
 });
 
+router.post('/:id', function(req, res, next) {
+  knex.raw(`UPDATE food SET
+    name = '${req.body.name}',
+    quantity = ${req.body.quantity}
+    WHERE id = ${req.body.id}
+    `).then(function(payload) {
+      res.redirect('/food');
+    });
+});
+
 module.exports = router;
