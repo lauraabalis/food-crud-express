@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Food</title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    Welcome to the food route.
+
+    <table border="1">
+      <% for (var i = 0; i < food.length; i++) { %>
+        <tr>
+          <td> <%= food[i].name %> </td>
+          <td> <%= food[i].quantity %> </td>
+          <td> <a href="/food/<%= food[i].id %>/edit">Edit this food</a> </td>
+          <td> <a href="/food/<%= food[i].id %>/delete">Delete this food</a> </td>
+        </tr>
+      <% } %>
+    </table>
+
+    <p>
+      <a href="/food/new"><button type="button" name="button">/Add a New Food</button></a>
+    </p>
+
   </body>
 </html>
