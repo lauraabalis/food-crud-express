@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Edit Food <%= food.id %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+
+    <h1>Editing Food <%= food.id %></h1>
+
+    <form action="/food/<%= food.id %>" method="post">
+      <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="<%= food.name %>">
+      </p>
+
+      <p>
+        <label for="quantity">Quantity</label>
+        <input type="text" id="quantity" name="quantity" value="<%= food.quantity %>">
+      </p>
+
+      <input type="hidden" name="id" value="<%= food.id %>">
+
+      <input type="submit" name="submit" value="Submit changes">
+    </form>
+
   </body>
 </html>
