@@ -29,4 +29,12 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.get('/:id/edit', function(req, res, next) {
+  knex.raw(`SELECT * FROM food WHERE id = ${req.params.id}`).then(function(payload) {
+    res.render('food/edit', {
+      food: payload.rows[0]
+    });
+  });
+});
+
 module.exports = router;
